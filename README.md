@@ -1,20 +1,62 @@
-Приложение отображающее погоду по средством запросов к публичным api MetaWether
+# React weather app
 
-1)На главном экране в поле поиска вводится город на латинице.
-2)после поиска города, отображается писок всех совпадений
-3)города из списка можно добавить в избранное (по кнопке +) или сразу посмотреть прогноз на 5 дней вперед + текущий день
-4)Перейдя на экран избранное отображается список выбранных городов. По нажатию мы перейдем в раздел просмотра погоды
+The application shows the weather forecast for the selected city,also it's possible to save to favorites.
+It consists of screen "Search","Favorites","Forecast".
+The first screen you see will be Search, write in the input field the name of the city that interests you.
+You can add favorites by pressing +, you can also click on the name, and see the forecast on the screen
+On the Favorites screen, a list of cities of interest to you, you can remove it from this list "-"
+and also click when you click on the name you will see the forecast
+Data stored in the favorites will remain after rebooting.
 
-избранне города сохраняются в локальное хранилище. Сохраняются при перезагрузке страницы.
+## Getting Started
 
-для запуска необходимо склонировать/скачать файлы проекта и запустить
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
- npm install
+### Prerequisites
 
-для установки необходимых библиотек.
-далее для запуска используйте
+What things you need to install the software and how to install them
 
-  npm start
+```
+https://github.com/DenisLebedinsky/React-weather-app.git
+```
 
-приложение создавалось конструтором Create-React-App
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
+npm install
+```
+
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+npm test
+```
+
+
+
+## Built With
+
+* [React](https://reactjs.org/) - The web framework used
+* [Redux](https://redux.js.org/) - Is a predictable state container
+* [CRA](https://github.com/facebook/create-react-app) - Used Create React App
+
+
+## Versioning
+
+We use 1.0.
+
+## Authors
+
+* [Denis Lebed](https://github.com/DenisLebedinsky)
 
