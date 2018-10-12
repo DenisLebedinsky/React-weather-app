@@ -59,5 +59,5 @@ We use 1.0.
 
 ## Authors
 
-* [Denis Lebed](https://github.com/DenisLebedinsky)
+* [Denis Lebedinsky](https://github.com/DenisLebedinsky)
 
