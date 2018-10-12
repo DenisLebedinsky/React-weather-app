@@ -1,18 +1,17 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {addToFavorites} from "../../actions/action";
+import {addToFavorites, fetchfindlocation, setCurrentLocation, switchToForecast} from "../../actions/action";
 
-class Citylist extends Component{
-
-    handleAddFavorites(e,loc){
-        //let loc = this.props.locations[event.target.value];
+class Citylist extends Component {
+    //добавить в избранное
+    handleAddFavorites(e, loc) {
         e.target.disabled = true;
         this.props.addToFavorites(loc);
         e.stopPropagation();
 
     }
-
-    handleClickLoc(e, id){
+    //перейти к прогнозу, и запросить данные по городу
+    handleClickLoc(e, id) {
         this.props.switchToForecast();
         this.props.setCurrentLocation(id);
 
@@ -20,26 +19,31 @@ class Citylist extends Component{
 
     render() {
         return (<li
-                   className='list-group-item d-flex justify-content-between align-items-center'
-                   onClick={(e) => this.handleClickLoc(e, this.props.loc.woeid)}>
+            className='list-group-item d-flex justify-content-between align-items-center'
+            onClick={(e) => this.handleClickLoc(e, this.props.loc.woeid)}>
             {this.props.loc.title}
             <button onClick={(e) => this.handleAddFavorites(e, this.props.loc)}
                     className='btn btn-warning'
+                    /*если в избранном кнопка не активна*/
                     disabled={this.props.fav.some((data) => data.woeid === this.props.loc.woeid)}
             >+
             </button>
         </li>)
     }
 }
-const mapStateToProps = state =>  {
+
+const mapStateToProps = state => {
     return {
-        fav:state.favorites.fav
+        fav: state.favorites.fav
     }
 };
 
 
-const initMapStateToProps ={
-    addToFavorites
+const initMapStateToProps = {
+    addToFavorites,
+    fetchfindlocation,
+    switchToForecast,
+    setCurrentLocation
 };
 
 export default connect(mapStateToProps, initMapStateToProps)(Citylist)

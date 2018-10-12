@@ -1,27 +1,40 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {dellfromFavorites, setCurrentLocation, switchToForecast} from "../../actions/action";
 
-const  handleClickLoc=(e, id)=> {
+
+class FavoritesList extends Component {
+    //переход к экрану прогноз и запрос данных по городу
+    handleClickLoc = (e, id) => {
         this.props.switchToForecast();
         this.props.setCurrentLocation(id);
-};
+    };
 
-const handleDellFavorites=(event, id)=> {
+    //удаление из избранного и предотвращение всплытия
+    handleDellFavorites = (event, id) => {
         this.props.dellfromFavorites(id);
         event.stopPropagation();
-};
+    };
 
-export const favoritesList=(stext, data, index)=>{
+    render() {
         return (
-            <li key={index}
+            <li
                 className='list-group-item d-flex justify-content-between align-items-center'
-                onClick={(e) => handleClickLoc(e, data.woeid)}>
-                {data.title}
-                <button onClick={(event) => handleDellFavorites(event, data.woeid)}
+                onClick={(e) => this.handleClickLoc(e, this.props.data.woeid)}>
+                {this.props.data.title}
+                <button onClick={(event) => this.handleDellFavorites(event, this.props.data.woeid)}
                         className='btn btn-info'
                 >-
                 </button>
             </li>)
+    }
+}
+
+const mapDispatchToProps = {
+    dellfromFavorites,
+    setCurrentLocation,
+    switchToForecast
 };
 
-
+export default connect(null, mapDispatchToProps)(FavoritesList)
 

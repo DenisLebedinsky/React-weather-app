@@ -8,7 +8,7 @@ class Forecast extends Component {
     componentDidMount() {
         this.props.fetchWeatherCurrentLocation(this.props.currentLoc);
     }
-
+//рендерит город и погоду по дням
     render() {
         return (
             <div className='container'>

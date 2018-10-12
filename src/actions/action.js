@@ -8,11 +8,13 @@ import {
     SWITCH_SCREEN_FORECAST,
     SWITCH_SCREEN_SEARCH,
     SET_CURRENT_LOCATION,
-FETCH_WEATHER_CURRENT_LOCATION_SUCCESS,
-FETCH_WEATHER_CURRENT_LOCATION_FAILURE,
-FETCH_WEATHER_CURRENT_LOCATION_START} from './actionTypes'
-import {findLocationApi,findWratherCurrentLocationAPI} from './../api/api'
+    FETCH_WEATHER_CURRENT_LOCATION_SUCCESS,
+    FETCH_WEATHER_CURRENT_LOCATION_FAILURE,
+    FETCH_WEATHER_CURRENT_LOCATION_START
+} from './actionTypes'
+import {findLocationApi, findWratherCurrentLocationAPI} from './../api/api'
 
+//запрашиваем список городов из апи
 export const fetchfindlocation = (stext) => async dispatch => {
     dispatch({type: FETCH_LOCATION_FIND_START});
     try {
@@ -30,6 +32,7 @@ export const fetchfindlocation = (stext) => async dispatch => {
     }
 };
 
+//запрос погоды по определенному городу
 export const fetchWeatherCurrentLocation = (id) => async dispatch => {
     dispatch({type: FETCH_WEATHER_CURRENT_LOCATION_START});
     try {
@@ -46,33 +49,43 @@ export const fetchWeatherCurrentLocation = (id) => async dispatch => {
         })
     }
 };
-export const addToFavorites = (locId) =>  dispatch => {
+
+//добавление города по id в избранное
+export const addToFavorites = (locId) => dispatch => {
     dispatch({
         type: ADD_TO_FAVORITES,
-        payload: locId});
+        payload: locId
+    });
 };
 
-export const dellfromFavorites = (locId) =>  dispatch => {
+//удаление города по id из избранного
+export const dellfromFavorites = (locId) => dispatch => {
     dispatch({
         type: DELL_FROM_FAVORITES,
-        payload: locId});
+        payload: locId
+    });
 };
 
-export const switchToSearch = () =>  dispatch => {
+//перейти на экран поиск
+export const switchToSearch = () => dispatch => {
     dispatch({type: SWITCH_SCREEN_SEARCH});
 };
 
-export const switchToFavorites = () =>  dispatch => {
+//перейти на экран избранное
+export const switchToFavorites = () => dispatch => {
     dispatch({type: SWITCH_SCREEN_FAVORITES});
 };
-export const switchToForecast = () =>  dispatch => {
+
+//перейти на экран прогноз
+export const switchToForecast = () => dispatch => {
     dispatch({type: SWITCH_SCREEN_FORECAST});
 };
 
-export const setCurrentLocation = (locID) =>  dispatch => {
+//установить текущий выбранный город
+export const setCurrentLocation = (locID) => dispatch => {
     dispatch({
         type: SET_CURRENT_LOCATION,
-        payload:locID
+        payload: locID
     });
 };
 

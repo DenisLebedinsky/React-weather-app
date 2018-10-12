@@ -1,22 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {dellfromFavorites,switchToForecast,setCurrentLocation} from './../../actions/action'
+import {dellfromFavorites, switchToForecast, setCurrentLocation} from './../../actions/action'
 import {getfavorites} from "../../selectors";
-import {favoritesList} from  './../../component/favoritesList'
+import FavoritesList from './../../component/favoritesList'
 
 class Favorites extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state ={
-            text:""
+        this.state = {
+            text: ""
         };
-
-        this.handleChange =  this.handleChange.bind(this);
-
-        }
-    handleChange(event){
+        this.handleChange = this.handleChange.bind(this);
+    }
+//валидация некорректных символов введенных пользователем
+    handleChange(event) {
         let newtext = event.target.value.replace(/[^a-z\s]+/ig, "");
-        this.setState({text:newtext});
+        this.setState({text: newtext});
     }
 
     render() {
@@ -38,8 +37,8 @@ class Favorites extends Component {
                 <div className='row'>
                     <div className='col-6 m-auto'>
                         <ul className='list-group list_group'>
-                            {this.props.fav.map((data,index)=>((data && ~data.title.toLowerCase().indexOf(this.state.text.toLowerCase())) || this.state.text==='')?
-                                favoritesList(this.state.text,data,index) : null)}
+                            {this.props.fav.map((data, index) => ((data && ~data.title.toLowerCase().indexOf(this.state.text.toLowerCase())) || this.state.text === '') ?
+                                <FavoritesList text={this.state.text} data={data} key={index}/> : null)}
                         </ul>
                     </div>
                 </div>
@@ -48,9 +47,9 @@ class Favorites extends Component {
     }
 }
 
-const mapStateToProps = state =>  {
+const mapStateToProps = state => {
     return {
-        fav:getfavorites(state)
+        fav: getfavorites(state)
     }
 };
 

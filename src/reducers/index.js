@@ -4,6 +4,8 @@ import favorites from './favorites'
 import workscreen from './screen'
 import currentLocation from './currentLocation'
 import weather from './weather'
+
+//объединяет редюсеры
 export default combineReducers({
     location,
     favorites,
