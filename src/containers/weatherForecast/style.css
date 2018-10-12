@@ -1,0 +1,116 @@
+.state-sn{
+    background-image: url(https://www.metaweather.com/static/img/weather/sn.svg);
+}
+.state-sl{
+     background-image: url(https://www.metaweather.com/static/img/weather/sl.svg);
+ }
+.state-h{
+    background-image: url(https://www.metaweather.com/static/img/weather/h.svg);
+}
+.state-t{
+    background-image: url(https://www.metaweather.com/static/img/weather/t.svg);
+}
+.state-hr{
+    background-image: url(https://www.metaweather.com/static/img/weather/hr.svg);
+}
+.state-lr{
+    background-image: url(https://www.metaweather.com/static/img/weather/lr.svg);
+}
+.state-c{
+    background-image: url(https://www.metaweather.com/static/img/weather/c.svg);
+}
+.state-hc{
+    background-image: url(https://www.metaweather.com/static/img/weather/hc.svg);
+}
+.state-lc{
+    background-image: url(https://www.metaweather.com/static/img/weather/lc.svg);
+}
+.state-s{
+    background-image: url(https://www.metaweather.com/static/img/weather/s.svg);
+}
+
+.state-icon-sml{
+    width: 32px;
+    height: 32px;
+    margin: 0 5px 0 0;
+    background-repeat:no-repeat ;
+}
+.weatherstate {
+    margin-bottom: 10px;
+}
+.group_weather{
+    padding: 0;
+    margin: 0 -18px;
+
+}
+
+ dd {
+    margin-left: 0;
+    font-size: 0.7rem;
+}
+ h4{
+    color: #337ab7;
+    font-size: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+
+
+.wind .dir {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: url(https://www.metaweather.com/static/img/windarrow.svg);
+    background-size: 100% 100%;
+}
+.wind .dir-NNE {
+    transform: rotate(20deg);
+}
+.wind .dir-ENE{
+    transform: rotate( 40deg);
+}
+.wind .dir-E{
+    transform: rotate( 65deg);
+}
+.wind .dir-E{
+    transform: rotate( 65deg);
+}
+.wind .dir-ESE{
+    transform: rotate( 110deg);
+}
+.wind .dir-SE{
+    transform: rotate( 135deg);
+}
+.wind .dir-SSE{
+     transform: rotate( 155deg);
+ }
+.wind .dir-S{
+    transform: rotate( 180deg);
+}
+.wind .dir-SSW{
+    transform: rotate( 200deg);
+}
+.wind .dir-SW{
+    transform: rotate( 230deg);
+}
+.wind .dir-WSW{
+    transform: rotate( 245deg);
+}
+.wind .dir-W{
+    transform: rotate( 270deg);
+}
+.wind .dir-WNW{
+    transform: rotate( 290deg);
+}
+.wind .dir-NW{
+    transform: rotate( 310deg);
+}
+
+.wind .dir-NNW{
+    transform: rotate( 330deg);
+}
+.wind .dir-N{
+}
