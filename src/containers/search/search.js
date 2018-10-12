@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchfindlocation,addToFavorites,switchToForecast,setCurrentLocation} from './../../actions/action'
+import {fetchfindlocation,switchToForecast,setCurrentLocation} from './../../actions/action'
 import './style.css'
+import Citylist from './../../component/cityList'
+import {getlocations,getfavorites} from './../../selectors'
 
 class Search extends Component {
     constructor(props){
@@ -13,18 +15,9 @@ class Search extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     handleChange(event) {
         let newtext = event.target.value.replace(/[^a-z\s]+/ig, "");
         this.setState({stext:newtext});
-    }
-
-    handleAddFavorites(e,loc){
-        //let loc = this.props.locations[event.target.value];
-        e.target.disabled = true;
-        this.props.addToFavorites(loc);
-      e.stopPropagation();
-
     }
 
     handleSubmit(event) {
@@ -32,25 +25,9 @@ class Search extends Component {
         event.preventDefault();
     }
 
-    handleClickLoc(e, id){
-        this.props.switchToForecast();
-        this.props.setCurrentLocation(id);
 
-    }
 
     render() {
-        const list = this.props.locations.map((loc,index)=>{
-            return <li key={index}
-                       className='list-group-item d-flex justify-content-between align-items-center'
-                       onClick={(e)=> this.handleClickLoc(e, loc.woeid)}>
-                {loc.title}
-                <button onClick={(e)=>this.handleAddFavorites(e,loc)}
-                        className='btn btn-warning'
-                        disabled={this.props.fav.some((data) => data.woeid === loc.woeid)}
-                >+
-                </button>
-            </li>
-        });
         return (
             <div className='container animated fadeInLeft'>
                 <div className='row'>
@@ -79,7 +56,7 @@ class Search extends Component {
                 <div className='row'>
             <div className='d-flex m-auto col-lg-8 '>
                 <ul className='list-group col-lg-12 list_group'>
-                 {list}
+                 {this.props.locations.map((loc,index) =><Citylist loc={loc} key={index}/>)}
                  </ul>
              </div>
                 </div>
@@ -90,14 +67,13 @@ class Search extends Component {
 
 const mapStateToProps = state =>  {
     return {
-        locations:state.location.city,
-        fav:state.favorites.fav
+        locations:getlocations(state),
+        fav:getfavorites(state)
     }
 };
 
 const mapDispatchToProps = {
     fetchfindlocation,
-    addToFavorites,
     switchToForecast,
     setCurrentLocation
 };
