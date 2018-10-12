@@ -1,10 +1,14 @@
 # React weather app
 
-The application shows the weather forecast for the selected city,also it's possible to save to favorites.
+The application shows the weather forecast for the selected city,
+also it's possible to save to favorites.
 It consists of screen "Search","Favorites","Forecast".
-The first screen you see will be Search, write in the input field the name of the city that interests you.
-You can add favorites by pressing +, you can also click on the name, and see the forecast on the screen
-On the Favorites screen, a list of cities of interest to you, you can remove it from this list "-"
+The first screen you see will be Search,
+write in the input field the name of the city that interests you.
+You can add favorites by pressing +, you can also click on the name,
+and see the forecast on the screen
+On the Favorites screen, a list of cities of interest to you,
+you can remove it from this list "-"
 and also click when you click on the name you will see the forecast
 Data stored in the favorites will remain after rebooting.
 
